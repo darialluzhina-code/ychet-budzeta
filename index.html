@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Семейный бюджет — учёт доходов и расходов</title>
+  <meta name="description" content="Бесплатный семейный учёт бюджета в браузере: доходы, расходы, лимиты и экспорт CSV. Данные хранятся только у вас.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("family_budget_theme_v1");
+        if (savedTheme === "dark" || savedTheme === "light") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (error) {
+        /* localStorage может быть недоступен */
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="favicon.svg" alt="">
+        Семейный бюджет
+      </a>
+      <nav class="nav-links">
+        <a class="btn secondary" href="app.html">Открыть учёт</a>
+      </nav>
+    </header>
+
+    <section class="card hero">
+      <h1>Простой учёт семейных финансов</h1>
+      <p>
+        Записывайте доходы и расходы, следите за лимитом месяца
+        и смотрите, куда уходят деньги. Без регистрации:
+        всё хранится локально в вашем браузере.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="app.html">Начать учёт</a>
+        <a class="btn secondary" href="#how">Как это работает</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <article class="card feature">
+        <h3>Доходы и расходы</h3>
+        <p>Добавляйте операции по категориям, комментируйте покупки и правьте записи при необходимости.</p>
+      </article>
+      <article class="card feature">
+        <h3>Лимит на месяц</h3>
+        <p>Задайте потолок расходов и сразу видите, сколько уже использовано и сколько ещё осталось.</p>
+      </article>
+      <article class="card feature">
+        <h3>Экспорт и тема</h3>
+        <p>Скачивайте CSV для резервной копии и переключайте светлую или тёмную тему.</p>
+      </article>
+    </section>
+
+    <section id="how" class="card">
+      <h2>Как это работает</h2>
+      <div class="steps">
+        <article class="step">
+          <div class="step-number">1</div>
+          <h3>Откройте учёт</h3>
+          <p>Перейдите в приложение и выберите отчётный месяц.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">2</div>
+          <h3>Добавьте операции</h3>
+          <p>Укажите тип, сумму, категорию и дату. Можно задать лимит расходов.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">3</div>
+          <h3>Смотрите итоги</h3>
+          <p>Баланс, диаграмма категорий и история операций обновляются сразу.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">
+      Данные не отправляются на сервер. Для резервной копии используйте экспорт CSV.
+    </p>
+  </div>
+
+  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">🌙</button>
+  <script src="js/theme.js"></script>
+</body>
+</html>
